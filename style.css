@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(69, 219, 252, 1) 100%);
+}
+
+h1 {
+    text-align: center;
+}
+
+.section {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    min-width: 350px;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
