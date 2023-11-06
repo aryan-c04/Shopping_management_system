@@ -47,7 +47,13 @@ class IMS:
         self.lbl_supplier.place(x=650,y=120,height=150,width=300)   
 
         self.lbl_category=Label(self.root,text="Total Category\n[0]",bd=5,relief=RIDGE,bg='#009688',fg='white',font=('goudy old style',20,'bold'))
-        self.lbl_category.place(x=1000,y=120,height=150,width=300)   
+        self.lbl_category.place(x=1000,y=120,height=150,width=300)  
+        
+        self.lbl_product=Label(self.root,text="Total Product\n[0]",bd=5,relief=RIDGE,bg='#607d8b',fg='white',font=('goudy old style',20,'bold'))
+        self.lbl_product.place(x=300,y=300,height=150,width=300)   
+
+        self.lbl_sales=Label(self.root,text="Total Sales\n[0]",bd=5,relief=RIDGE,bg='#ffc107',fg='white',font=('goudy old style',20,'bold'))
+        self.lbl_sales.place(x=650,y=300,height=150,width=300) 
         
         
         
