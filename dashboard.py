@@ -19,3 +19,8 @@ class IMS:
 
         #===Left Menu===#
         self.MenuLogo=Image.open("images/menu_im.png")
+        self.MenuLogo = self.MenuLogo.resize((200, 200), Image.BOX)
+        self.MenuLogo=ImageTk.PhotoImage(self.MenuLogo)
+        
+        
+        
