@@ -28,6 +28,7 @@ class IMS:
         lbl_menuLogo.pack(side=TOP,fill=X)
         
         self.icon_side=PhotoImage(file='images/side.png')
+        lbl_menu=Label(LeftMenu,text="Menu",font=("times new roman",20),bg="#009688").pack(side=TOP,fill=X)    
         
         
         
