@@ -37,6 +37,18 @@ class IMS:
         btn_sales=Button(LeftMenu,text="Sales",image=self.icon_side,compound=LEFT,padx=5,anchor='w',font=("times new roman",20, 'bold'),bg="white",bd=3,cursor='hand2').pack(side=TOP,fill=X)           
         btn_exit=Button(LeftMenu,text="exit",image=self.icon_side,compound=LEFT,padx=5,anchor='w',font=("times new roman",20, 'bold'),bg="white",bd=3,cursor='hand2').pack(side=TOP,fill=X)   
         
+         #===content===#
+
+
+        self.lbl_employee=Label(self.root,text="Total Employee\n[0]",bd=5,relief=RIDGE,bg='#33bbf9',fg='white',font=('goudy old style',20,'bold'))
+        self.lbl_employee.place(x=300,y=120,height=150,width=300)   
+
+        self.lbl_supplier=Label(self.root,text="Total Supplier\n[0]",bd=5,relief=RIDGE,bg='#ff5722',fg='white',font=('goudy old style',20,'bold'))
+        self.lbl_supplier.place(x=650,y=120,height=150,width=300)   
+
+        self.lbl_category=Label(self.root,text="Total Category\n[0]",bd=5,relief=RIDGE,bg='#009688',fg='white',font=('goudy old style',20,'bold'))
+        self.lbl_category.place(x=1000,y=120,height=150,width=300)   
+        
         
         
  
