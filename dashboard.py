@@ -18,4 +18,4 @@ class IMS:
         
 
         #===Left Menu===#
-        
+        self.MenuLogo=Image.open("images/menu_im.png")
