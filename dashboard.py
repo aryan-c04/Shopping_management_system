@@ -21,6 +21,14 @@ class IMS:
         self.MenuLogo=Image.open("images/menu_im.png")
         self.MenuLogo = self.MenuLogo.resize((200, 200), Image.BOX)
         self.MenuLogo=ImageTk.PhotoImage(self.MenuLogo)
+        LeftMenu=Frame(self.root,bd=2,relief=RIDGE,bg="white")
+        LeftMenu.place(x=9,y=102,width=200,height=565)
+
+        lbl_menuLogo=Label(LeftMenu,image=self.MenuLogo)
+        lbl_menuLogo.pack(side=TOP,fill=X)
+        
+        self.icon_side=PhotoImage(file='images/side.png')
         
         
         
+ 
