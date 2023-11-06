@@ -1,5 +1,7 @@
 from tkinter import*
 from PIL import Image, ImageTk
+from employee import employeeClass
+
 class IMS:
     def __init__ (self,root):
         self.root=root
