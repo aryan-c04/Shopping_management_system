@@ -58,6 +58,16 @@ class IMS:
          #===footer===#
         lbl_footer=Label(self.root,text="Shopping Managment System | Developed by Team 3\nFor Any Technical Issue Contact:7351199562",font=('times new roman',12),bg="#4d636d",fg='white').pack(side=BOTTOM,fill=X)
         
-        
+        def employee(self):
+            self.new_win=Toplevel(self.root)
+            self.new_obj=employeeClass(self.new_win)
+
+
+
+
+if __name__=='__main__':
+    root=Tk()
+    obj=IMS(root)
+    root.mainloop()
         
  
