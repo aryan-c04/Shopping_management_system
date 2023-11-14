@@ -10,7 +10,7 @@ class IMS:
         self.root.config(bg='white')
         #===Title===#
         self.icon_title=PhotoImage(file="images/logo1.png")
-        title=Label(self.root,text="Shopping Managment System",image=self.icon_title,compound=LEFT,font=('times new roman',40,"bold"),bg="#010c48",fg='white').place(x=0,y=0,relwidth=1,height=70)
+        title=Label(self.root,text="Shopping Managment System",image=self.icon_title,compound=LEFT,font=('Eccentric Std',40,"bold"),bg="#C03D47",fg='white').place(x=0,y=0,relwidth=1,height=70)
 
         #===btnLogout===#
         btn_logout=Button(self.root,text="Logout",font=("times new roman",15,'bold'),bg="yellow",cursor='hand2').place(x=1350,y=10,height=30,width=150)
