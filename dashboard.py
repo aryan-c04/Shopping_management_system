@@ -30,7 +30,7 @@ class IMS:
         lbl_menuLogo.pack(side=TOP,fill=X)
         
         self.icon_side=PhotoImage(file='images/side.png')
-        lbl_menu=Label(LeftMenu,text="Menu",font=("times new roman",20),bg="#009688").pack(side=TOP,fill=X)
+         lbl_menu=Label(LeftMenu,text="Menu",font=("times new roman",20),bg="#3D6DC0",bd = 1,relief=RIDGE).pack(side=TOP,fill=X)
         
         btn_Employee=Button(LeftMenu,text="Employee",command=self.employee,image=self.icon_side,compound=LEFT,padx=5,anchor='w',font=("times new roman",20, 'bold'),bg="white",bd=3,cursor='hand2').pack(side=TOP,fill=X)     
         btn_supplier=Button(LeftMenu,text="Supplier",image=self.icon_side,compound=LEFT,padx=5,anchor='w',font=("times new roman",20, 'bold'),bg="white",bd=3,cursor='hand2').pack(side=TOP,fill=X)     
