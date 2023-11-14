@@ -15,7 +15,7 @@ class IMS:
         #===btnLogout===#
         btn_logout=Button(self.root,text="Logout",font=("times new roman",15,'bold'),bg="yellow",cursor='hand2').place(x=1350,y=10,height=30,width=150)
         #===clock===#
-        self.lbl_clock=Label(self.root,text="Welcome to Shopping Managment System\t\t Date: DD-MM-YYYY\t\t Time: HH:MM:SS",font=('times new roman',15),bg="#4d636d",fg='white')
+        self.lbl_clock=Label(self.root,text="Welcome to Shopping Managment System\t\t Date: DD-MM-YYYY\t\t Time: HH:MM:SS",font=('times new roman',15),bg="#3D6DC0",fg='white')
         self.lbl_clock.place(x=0,y=70,relwidth=1,height=30)
         
 
