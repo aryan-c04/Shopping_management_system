@@ -58,7 +58,7 @@ class IMS:
         self.lbl_sales.place(x=650,y=300,height=150,width=300)
         
          #===footer===#
-        lbl_footer=Label(self.root,text="Shopping Managment System | Developed by Team 3\nFor Any Technical Issue Contact:7351199562",font=('times new roman',12),bg="#4d636d",fg='white').pack(side=BOTTOM,fill=X)
+        lbl_footer=Label(self.root,text="Shopping Managment System | Developed by Team 3\nFor Any Technical Issue Contact : 7351199562",font=('times new roman',12),bg="#454545",fg='white').pack(side=BOTTOM,fill=X)
         
         def employee(self):
             self.new_win=Toplevel(self.root)
