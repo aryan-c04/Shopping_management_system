@@ -92,7 +92,15 @@ class employeeClass:
         
         self.txt_address=Text(self.root,font=("goudy old style",15),bg="lightyellow")
         self.txt_address.place(x=150,y=270,width=300,height=60)       
-        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("goudy old style",15),bg="lightyellow").place(x=600,y=270,width=180)       
+        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("goudy old style",15),bg="lightyellow").place(x=600,y=270,width=180)      
+
+         #===buttons===#
+        btn_add= Button(self.root,text="Save",command=self.add,font=('goudy old style', 15), bg='#2196f3',fg="white",cursor="hand2").place(x=500,y=305,width=110,height=28)
+        btn_update= Button(self.root,text="Update",command=self.update,font=('goudy old style', 15), bg='#4caf50',fg="white",cursor="hand2").place(x=620,y=305,width=110,height=28)
+        btn_delete= Button(self.root,text="Delete",command=self.delete,font=('goudy old style', 15), bg='#f44336',fg="white",cursor="hand2").place(x=740,y=305,width=110,height=28)
+        btn_clear= Button(self.root,text="Clear",command=self.clear,font=('goudy old style', 15), bg='#607d8b',fg="white",cursor="hand2").place(x=860,y=305,width=110,height=28)
+
+ 
                                                     
             
             
