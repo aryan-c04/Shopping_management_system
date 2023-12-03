@@ -84,6 +84,15 @@ class employeeClass:
         cmd_utype=ttk.Combobox(self.root,textvariable=self.var_utype,values=("Admin","Employee"),state='readonly',justify=CENTER,font=("goudy old style",15))
         cmd_utype.place(x=850,y=230,width=180) 
         cmd_utype.current(0)   
+
+
+        #===row4===#
+        lbl_address=Label(self.root,text="Address",font=("goudy old style",15),bg="white").place(x=50,y=270)       
+        lbl_salary=Label(self.root,text="Salary",font=("goudy old style",15),bg="white").place(x=500,y=270)                    
+        
+        self.txt_address=Text(self.root,font=("goudy old style",15),bg="lightyellow")
+        self.txt_address.place(x=150,y=270,width=300,height=60)       
+        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("goudy old style",15),bg="lightyellow").place(x=600,y=270,width=180)       
                                                     
             
             
