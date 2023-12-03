@@ -10,6 +10,9 @@ class productClass:
         self.root.focus_force()
 
         #=============================
+        self.var_searchby=StringVar()
+        self.var_searchtxt=StringVar()
+        
         self.var_cat=StringVar()
         self.var_sup=StringVar()
         self.var_name=StringVar()
@@ -55,8 +58,66 @@ class productClass:
         cmd_status.place(x=150,y=310,width=200)
         cmd_status.current(0)
         
- 
+        #========Buttons==========
+        
+        btn_add=Button(product_Frame, text="Save", command=self.add, font=("goudy old style", 15),bg="#2196f3",fg="white", cursor="hand2").place(x=10, y=400, width=100,height=40)
+        btn_update=Button(product_Frame, text="Update", command=self.update, font=("goudy old style", 15),bg="#4caf50",fg="white", cursor="hand2").place(x=120, y=400, width=100,height=40)
+        btn_delete=Button(product_Frame, text="Delete", command=self.delete, font=("goudy old style",15),bg="#f44336",fg="white", cursor="hand2").place(x=230, y=400, width=100,height=40)
+        btn_clear=Button(self.root,text="Clear",command=self.clear, font=("goudy old style",15),bg="#607d8b",fg="white", cursor="hand2").place(x=10, y=340, width=100,height=40)
+        
+        
+        #===searhFrame===#
+        SearchFrame=LabelFrame(self.root,text="Search Employee",font=('goudy old style',12,'bold'),bg='white')
+        SearchFrame.place(x=480,y=10,width=600,height=80)
+  
 
+         #===options===#
+        cmd_search=ttk.Combobox(SearchFrame,textvariable=self.var_searchby,values=("Select","Category","Supplier","Name"),state='readonly',justify=CENTER,font=("goudy old style",15))
+        cmd_search.place(x=10,y=10,width=180)
+        cmd_search.current(0)
+
+        txt_search = Entry(SearchFrame,textvariable=self.var_searchtxt,font=('goudy old style', 15), bg='lightyellow').place(x=200,y=10)
+        btn_search= Button(SearchFrame,text="Search",font=('goudy old style', 15), bg='#4caf50',fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)
+
+ 
+#Copy the db from employee(Around 15-18 minustes from vid 6)
+
+
+        #=============Product-Details==================
+        p_frame=Frame(self.root,bd=3, relief=RIDGE)
+        p_frame.place(x=480, y=100, width=600, height=390)
+        scrolly=Scrollbar (p_frame, orient=VERTICAL)
+        scrollx=Scrollbar(p_frame, orient=HORIZONTAL)
+        self.product_table=ttk.Treeview(p_frame, columns=("pid","Category", "Supplier","name","price","qty","status"),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
+        scrollx.pack(side=BOTTOM, fill=X)
+        scrolly.pack(side=RIGHT,fill=Y)
+        scrollx.config(command=self.EmployeeTable.xview)
+        scrolly.config(command=self.EmployeeTable.yview)
+        
+        self.product_table.heading ("pid", text="P ID")
+        self.product_table.heading("Category", text="Category")
+        self.product_table.heading ("Supplier", text="Supplier")
+        self.product_table.heading("name", text="name")
+        self.product_table.heading ("price", text="price")
+        self.product_table.heading ("qty", text="Quantity")
+        self.product_table.heading ("status", text="Status")
+        
+        self.product_table.column("pid",width=90)      
+        self.product_table.column("Category",width=100)
+        self.product_table.column("Supplier",width=100)
+        self.product_table.column("name",width=100)
+        self.product_table.column("price",width=100)
+        self.product_table.column("qty",width=100)
+        self.product_table.column("status",width=100)
+        self.product_table.pack(fill=BOTH, expand=1)
+        self.product_table.bind("<ButtonRelease-1>", self.get_data)
+        
+        self.show()
+                
+                
+        
+        
+        
 
 
 
