@@ -30,7 +30,7 @@ class productClass:
         
         title=Label(self.root,text="Manage Product Details",font=("goudy old style",18),bg="#0f4d7d",fg="white").pack(side=TOP,fill=X)
 
-        #===column 1
+        #========column 1===========
         lbl_category=Label(self.root,text="Category",font=("goudy old style",18),bg="white").place(x=30,y=60)
         lbl_supplier=Label(self.root,text="Supplier",font=("goudy old style",18),bg="white").place(x=30,y=110)
         lbl_product_name=Label(self.root,text="Name",font=("goudy old style",18),bg="white").place(x=30,y=160)
@@ -39,7 +39,7 @@ class productClass:
         lbl_status=Label(self.root,text="Status",font=("goudy old style",18),bg="white").place(x=30,y=310)
 
 
-        #===column 2
+        #========column 2==========
         cmd_cat=ttk.Combobox(product_Frame,textvariable=self.var_cat,values=("Select"),state='readonly',justify=CENTER,font=("goudy old style",15))
         cmd_cat.place(x=150,y=60,width=200)
         cmd_cat.current(0)
