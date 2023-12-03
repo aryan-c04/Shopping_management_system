@@ -60,7 +60,18 @@ class employeeClass:
         cmd_gender=ttk.Combobox(self.root,textvariable=self.var_gender,values=("Select","Male","Female","Other"),state='readonly',justify=CENTER,font=("goudy old style",15))
         cmd_gender.place(x=500,y=150,width=180) 
         cmd_gender.current(0)
-        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=150,width=180)           
+        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=150,width=180)          
+
+
+         #===row2===#
+        lbl_name=Label(self.root,text="Name",font=("goudy old style",15),bg="white").place(x=50,y=190)       
+        lbl_dob=Label(self.root,text="D.O.B",font=("goudy old style",15),bg="white").place(x=350,y=190)                    
+        lbl_doj=Label(self.root,text="D.O.J",font=("goudy old style",15),bg="white").place(x=750,y=190)                                 
+        
+
+        txt_name=Entry(self.root,textvariable=self.var_name,font=("goudy old style",15),bg="lightyellow").place(x=150,y=190,width=180)       
+        txt_dob=Entry(self.root,textvariable=self.var_dob,font=("goudy old style",15),bg="lightyellow").place(x=500,y=190,width=180)       
+        txt_doj=Entry(self.root,textvariable=self.var_doj,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=190,width=180)                                                        
             
             
             
