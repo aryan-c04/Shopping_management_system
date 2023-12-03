@@ -71,7 +71,20 @@ class employeeClass:
 
         txt_name=Entry(self.root,textvariable=self.var_name,font=("goudy old style",15),bg="lightyellow").place(x=150,y=190,width=180)       
         txt_dob=Entry(self.root,textvariable=self.var_dob,font=("goudy old style",15),bg="lightyellow").place(x=500,y=190,width=180)       
-        txt_doj=Entry(self.root,textvariable=self.var_doj,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=190,width=180)                                                        
+        txt_doj=Entry(self.root,textvariable=self.var_doj,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=190,width=180)    
+
+        #===row3===#
+        lbl_email=Label(self.root,text="Email",font=("goudy old style",15),bg="white").place(x=50,y=230)       
+        lbl_pass=Label(self.root,text="Password",font=("goudy old style",15),bg="white").place(x=350,y=230)                    
+        lbl_utype=Label(self.root,text="User Type",font=("goudy old style",15),bg="white").place(x=750,y=230)                                 
+        
+
+        txt_email=Entry(self.root,textvariable=self.var_email,font=("goudy old style",15),bg="lightyellow").place(x=150,y=230,width=180)       
+        txt_pass=Entry(self.root,textvariable=self.var_pass,font=("goudy old style",15),bg="lightyellow").place(x=500,y=230,width=180)       
+        cmd_utype=ttk.Combobox(self.root,textvariable=self.var_utype,values=("Admin","Employee"),state='readonly',justify=CENTER,font=("goudy old style",15))
+        cmd_utype.place(x=850,y=230,width=180) 
+        cmd_utype.current(0)   
+                                                    
             
             
             
