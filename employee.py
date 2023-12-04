@@ -184,6 +184,19 @@ class employeeClass:
 
         except Exception as ex:
             messagebox.showerror("Error",f'error due to:{str(ex)}',parent=self.root)
+
+    def show(self):
+        con=sqlite3.connect(database=r"ims.db")
+        cur=con.cursor()
+        try:
+            cur.execute("select * from employee")
+            rows=cur.fetchall()
+            self.EmployeeTable.delete(*self.EmployeeTable.get_children())
+            for row in rows:
+                self.EmployeeTable.insert('',END,values=row)
+
+        except Exception as ex:
+            messagebox.showerror("Error",f'error due to:{str(ex)}',parent=self.root)
             
 
 
