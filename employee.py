@@ -1,6 +1,7 @@
 from tkinter import*
 from PIL import Image, ImageTk
-from tkinter import ttk
+import sqlite3
+from tkinter import ttk ,messagebox
 class employeeClass:
     def __init__ (self,root):
         self.root=root
@@ -19,10 +20,12 @@ class employeeClass:
         self.var_gender=StringVar()
         self.var_contact=StringVar()
         self.var_email=StringVar()
+        self.var_name=StringVar()
         self.var_dob=StringVar()
         self.var_doj=StringVar()
         self.var_pass=StringVar()
         self.var_utype=StringVar()
+        self.var_salary=StringVar()
         
         
 
@@ -35,9 +38,9 @@ class employeeClass:
         cmd_search=ttk.Combobox(SearchFrame,textvariable=self.var_searchby,values=("Select","Email","Name","Contact"),state='readonly',justify=CENTER,font=("goudy old style",15))
         cmd_search.place(x=10,y=10,width=180)
         cmd_search.current(0)
-
+ 
         txt_search = Entry(SearchFrame,textvariable=self.var_searchtxt,font=('goudy old style', 15), bg='lightyellow').place(x=200,y=10)
-        btn_search= Button(SearchFrame,text="Search",font=('goudy old style', 15), bg='#4caf50',fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)
+        btn_search= Button(SearchFrame,text="Search",command=self.search,font=('goudy old style', 15), bg='#4caf50',fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)
 
 
         #=====title======#
@@ -47,8 +50,6 @@ class employeeClass:
             
         #=====content====#
         
-        lbl_empid=Label(self.root,text="Emp ID",font=("goudy old style",15),bg="white").place(x=50,y=150)                    
-            
 
         #===row1===#
         lbl_empid=Label(self.root,text="Emp ID",font=("goudy old style",15),bg="white").place(x=50,y=150)       
@@ -60,10 +61,9 @@ class employeeClass:
         cmd_gender=ttk.Combobox(self.root,textvariable=self.var_gender,values=("Select","Male","Female","Other"),state='readonly',justify=CENTER,font=("goudy old style",15))
         cmd_gender.place(x=500,y=150,width=180) 
         cmd_gender.current(0)
-        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=150,width=180)          
+        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=150,width=180)           
 
-
-         #===row2===#
+        #===row2===#
         lbl_name=Label(self.root,text="Name",font=("goudy old style",15),bg="white").place(x=50,y=190)       
         lbl_dob=Label(self.root,text="D.O.B",font=("goudy old style",15),bg="white").place(x=350,y=190)                    
         lbl_doj=Label(self.root,text="D.O.J",font=("goudy old style",15),bg="white").place(x=750,y=190)                                 
@@ -71,8 +71,9 @@ class employeeClass:
 
         txt_name=Entry(self.root,textvariable=self.var_name,font=("goudy old style",15),bg="lightyellow").place(x=150,y=190,width=180)       
         txt_dob=Entry(self.root,textvariable=self.var_dob,font=("goudy old style",15),bg="lightyellow").place(x=500,y=190,width=180)       
-        txt_doj=Entry(self.root,textvariable=self.var_doj,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=190,width=180)    
-
+        txt_doj=Entry(self.root,textvariable=self.var_doj,font=("goudy  old style",15),bg="lightyellow").place(x=850,y=190,width=180)                                                       
+            
+        
         #===row3===#
         lbl_email=Label(self.root,text="Email",font=("goudy old style",15),bg="white").place(x=50,y=230)       
         lbl_pass=Label(self.root,text="Password",font=("goudy old style",15),bg="white").place(x=350,y=230)                    
@@ -92,16 +93,17 @@ class employeeClass:
         
         self.txt_address=Text(self.root,font=("goudy old style",15),bg="lightyellow")
         self.txt_address.place(x=150,y=270,width=300,height=60)       
-        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("goudy old style",15),bg="lightyellow").place(x=600,y=270,width=180)      
+        txt_salary=Entry(self.root,textvariable=self.var_salary,font=("goudy old style",15),bg="lightyellow").place(x=600,y=270,width=180)       
 
-         #===buttons===#
+
+        #===buttons===#
         btn_add= Button(self.root,text="Save",command=self.add,font=('goudy old style', 15), bg='#2196f3',fg="white",cursor="hand2").place(x=500,y=305,width=110,height=28)
         btn_update= Button(self.root,text="Update",command=self.update,font=('goudy old style', 15), bg='#4caf50',fg="white",cursor="hand2").place(x=620,y=305,width=110,height=28)
         btn_delete= Button(self.root,text="Delete",command=self.delete,font=('goudy old style', 15), bg='#f44336',fg="white",cursor="hand2").place(x=740,y=305,width=110,height=28)
         btn_clear= Button(self.root,text="Clear",command=self.clear,font=('goudy old style', 15), bg='#607d8b',fg="white",cursor="hand2").place(x=860,y=305,width=110,height=28)
 
 
-                #===Employee Details===#
+        #===Employee Details===#
 
         emp_frame=Frame(self.root,bd=3,relief=RIDGE)
         emp_frame.place(x=0,y=350,relwidth=1,height=150)
@@ -143,6 +145,48 @@ class employeeClass:
         
          
         self.show()
+#==========================================================================================================================#
+    
+    
+    def add(self):
+        con=sqlite3.connect(database=r"ims.db")
+        cur=con.cursor()
+        try:
+            if self.var_emp_id.get()=='':
+                messagebox.showerror("Error","Employee ID must be required",parent=self.root)
+            else:
+                cur.execute("Select * from employee where eid=?",(self.var_emp_id.get(),))
+                row=cur.fetchone()
+                if row!=None:
+                    messagebox.showerror("Error","This Employee id already assigned, try different",parent=self.root)
+                else:
+                    cur.execute("Insert into employee (eid,name,email,gender,contact,dob,doj,pass,utype,address,salary)values(?,?,?,?,?,?,?,?,?,?,?)",(
+                                        self.var_emp_id.get(),
+                                        self.var_name.get(),
+                                        self.var_email.get(),
+                                        self.var_gender.get(),
+                                        self.var_contact.get(),
+
+                                        self.var_dob.get(),
+                                        self.var_doj.get(),
+                                        self.var_pass.get(),
+                                        self.var_utype.get(),
+                                        self.txt_address.get("1.0",END),
+                                        self.var_salary.get()
+
+                    ))
+                    con.commit()
+                    messagebox.showinfo("Success","Employee Addedd Successfully",parent=self.root)
+                    self.show()
+
+
+
+
+        except Exception as ex:
+            messagebox.showerror("Error",f'error due to:{str(ex)}',parent=self.root)
+            
+
+
 
  
                                                     
