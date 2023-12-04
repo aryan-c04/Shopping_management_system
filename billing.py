@@ -345,7 +345,14 @@ if __name__=='__main__':
     def bill_bottom(self):
         bill_bottom_temp=f'''
 
-    
+    {str("="*47)}
+ Bill Amount\t\t\t\tRs.{self.bill_amnt}
+ Discount\t\t\t\tRs.{self.discount}
+ Net Pay\t\t\t\tRs.{self.net_pay}
+{str("="*47)}\n
+        '''
+        self.txt_bill_area.insert(END,bill_bottom_temp)
+        
  
 
 
