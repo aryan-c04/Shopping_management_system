@@ -231,6 +231,7 @@ class employeeClass:
                 if row==None:
                     messagebox.showerror("Error","Invalid Employee Id",parent=self.root)
                 else:
+                    op=messagebox.askyesno("Confirm","Do you really want to delete?",parent=self.root)
                 if op==True:
                     cur.execute("delete from employee where eid=?",(self.var_emp_id.get(),))
                     con.commit()
@@ -240,6 +241,23 @@ class employeeClass:
         except Exception as ex:
             messagebox.showerror("Error",f'error due to:{str(ex)}',parent=self.root)
 
+                                                           
+    def clear(self):
+        self.var_emp_id.set("")                    
+        self.var_name.set(""),
+        self.var_email.set(""),
+        self.var_gender.set(""),
+        self.var_contact.set(""),
+        self.var_dob.set(""),
+        self.var_doj.set(""),
+        self.var_pass.set(""),
+        self.var_utype.set("Admin"),
+        self.txt_address.delete("1.0",END),
+        self.var_salary.set("")
+        self.var_searchtxt.set('')
+        self.var_searchby.set("Select")
+
+        self.show()
 
  
                                                     
