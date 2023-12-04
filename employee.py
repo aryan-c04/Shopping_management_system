@@ -219,7 +219,26 @@ class employeeClass:
 
 
             
-
+    def delete(self):
+        con=sqlite3.connect(database=r'ims.db')
+        cur=con.cursor()
+        try:
+            if self.var_emp_id.get()=='':
+                messagebox.showerror("Error","Employee ID must be required",parent=self.root)
+            else:
+                cur.execute("Select * from employee where eid=?",(self.var_emp_id.get(),))
+                row=cur.fetchone()
+                if row==None:
+                    messagebox.showerror("Error","Invalid Employee Id",parent=self.root)
+                else:
+                if op==True:
+                    cur.execute("delete from employee where eid=?",(self.var_emp_id.get(),))
+                    con.commit()
+                    messagebox.showinfo('Delete',"Employee Deleted Sucessfully",parent=self.root)
+                    self.clear()
+        
+        except Exception as ex:
+            messagebox.showerror("Error",f'error due to:{str(ex)}',parent=self.root)
 
 
  
